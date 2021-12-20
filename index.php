@@ -46,7 +46,7 @@
         var urlDefualt = "http://api.openweathermap.org/data/2.5/weather?q=lat=7.4142474&lon=100.1389773&appid=1279315f12ca5fb0674f8b9c914a6967";
         $.getJSON(urlDefualt)
             .done((data) => {
-                var datetime = convertHMS(data.dt);
+                var timeupdate = convertHMS(data.dt);
                 var sunrise = convertHMS(data.sys["sunrise"]);
                 var sunset = convertHMS(data.sys["sunset"]);
                 var place = (data.name);
@@ -68,7 +68,7 @@
                     line += "<p class='card-text'>พระอาทิตย์ตก : "+ sunset +"</p>";
                     line += "<p class='card-text'>อุณหภูมิ : "+ temp +"</p>";
                     line += "<p class='card-text'>ความชื้นในอากาศ : "+ humid  + "</p>";
-                    line += "<p class='card-text'>เวลา : "+datetime  +"</p>";
+                    line += "<p class='card-text'>เวลา : "+timeupdate  +"</p>";
                     line += "</div>"
                 $("#cardWeather").append(line);
             }).fail((xhr, status, error) => {})
@@ -81,7 +81,7 @@
         var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + x + "&lon=" + y + "&appid=d1ffd4a48d1871c9b8d00735829b6d84"
         $.getJSON(url)
             .done((data) => {
-                var datetime = convertHMS(data.dt);
+                var timeupdate = convertHMS(data.dt);
                 var sunrise = convertHMS(data.sys["sunrise"]);
                 var sunset = convertHMS(data.sys["sunset"]);
                 var place = (data.name);
@@ -101,7 +101,7 @@
                     line += "<p class='card-text'>พระอาทิตย์ : "+ sunset +"</p>";
                     line += "<p class='card-text'>อุณหภูมิ : "+ temp +"</p>";
                     line += "<p class='card-text'>ความชื้นในอากาศ : "+ humid  +"</p>";
-                    line += "<p class='card-text'>เวลา : "+datetime  +"</p>";
+                    line += "<p class='card-text'>เวลา : "+timeupdate  +"</p>";
                     line += "</div>"
                 $("#cardWeather").append(line);
             }).fail((xhr, status, error) => {})
